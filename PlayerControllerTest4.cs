@@ -47,4 +47,15 @@ public class Character2DTopDown : MonoBehaviour {
 
         LookAtCursor();
     }
+    
+    void HandleMovement()
+    {
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
+
+        Vector2 movement = new Vector2(moveHorizontal, moveVertical).normalized;
+
+        
+            body.MovePosition(body.position + movement * Time.deltaTime);
+    }
 }
