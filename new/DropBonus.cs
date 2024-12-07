@@ -4,7 +4,7 @@ using Unity.Burst.Intrinsics;
 using UnityEngine;
 using static System.Console;
 
-public class DropBonus : MonoBehaviour
+public class DropBonus : MonoBehaviour //кидаем на врага из которого идут бонусы
 {
     public bool IsDead = false;
     public int BonusMin = 0;
@@ -13,7 +13,7 @@ public class DropBonus : MonoBehaviour
     public int PowerUp1Max = 0;
     public int PowerUp2Min = 0;
     public int PowerUp2Max = 0;
-    public List<GameObject> BonusPrefabs = new List<GameObject>();
+    public List<GameObject> BonusPrefabs = new List<GameObject>(); //изначально три прифаба куда кидаем прифабы бонусов
     void Start()
     {
         
