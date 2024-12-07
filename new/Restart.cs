@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+//Кидаем скрипт на UI Button;
 public class Restart : MonoBehaviour
 {
     public bool Click = false;
