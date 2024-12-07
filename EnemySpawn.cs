@@ -7,16 +7,14 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour
 {
     public bool ActivePointEnemy = false;
-    [SerializeField] private List<GameObject> EnemyPrefabs = new List<GameObject>();
-
-
+    [SerializeField] private List<GameObject> EnemyPrefabs = new List<GameObject>(); //Создаём список куда будем добавлять точки спауна
 
     void Start()
     {
 
     }
 
-    void Update()
+    void Update() 
     {
         if (ActivePointEnemy == true)
         {
@@ -29,7 +27,7 @@ public class EnemySpawn : MonoBehaviour
         }
     }
 
-    public void Destroy()
+    public void Destroy() //обращаемся из плейерконтроллер
     {
         ActivePointEnemy = true;
     }
