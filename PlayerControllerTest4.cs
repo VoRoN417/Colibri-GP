@@ -58,4 +58,18 @@ public class Character2DTopDown : MonoBehaviour {
         
             body.MovePosition(body.position + movement * Time.deltaTime);
     }
+    /*private void OnTriggerEnter2D(Collider2D other)
+    {
+    if (other.CompareTag("PointSpawn"))
+    {
+        Debug.Log("Снаряд столкнулся с объектом: " + other.name);
+
+        EnemySpawn point = other.gameObject.GetComponent<EnemySpawn>();
+        if (point != null)
+        {
+            point.Destroy();
+        }
+
+    }
+}*/
 }
