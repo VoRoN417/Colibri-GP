@@ -58,7 +58,17 @@ public class Character2DTopDown : MonoBehaviour {
         
             body.MovePosition(body.position + movement * Time.deltaTime);
     }
-    /*private void OnTriggerEnter2D(Collider2D other)
+    /*public bool dead = false; добавляемв начало две переменных
+    public GameObject Butt; сюда кидаем объёкт баттон, на котором код рестарт
+    private void Dead()
+{
+    if(dead == true)
+    {
+        Time.timeScale = 0; время останавливается
+        Butt.transform.position = new Vector2(0, 0); появляется баттон
+    }
+}
+    private void OnTriggerEnter2D(Collider2D other)
     {
     if (other.CompareTag("PointSpawn"))
     {
@@ -72,4 +82,5 @@ public class Character2DTopDown : MonoBehaviour {
 
     }
 }*/
+
 }
