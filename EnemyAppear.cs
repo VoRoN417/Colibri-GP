@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class EnemyAppear : MonoBehaviour
 {
-    public GameObject EnemyPrefab;
+    public GameObject EnemyPrefab; //кидаем прифаб врага
     public bool IsActive = false;
     void Start()
     {
@@ -18,14 +18,14 @@ public class EnemyAppear : MonoBehaviour
 
         if (IsActive == true)
         {
-            Instantiate(EnemyPrefab);
-            EnemyPrefab.transform.position = gameObject.transform.position;
-            Destroy(gameObject);
+            Instantiate(EnemyPrefab); //создаём врага
+            EnemyPrefab.transform.position = gameObject.transform.position; //позицию в точке спауна
+            Destroy(gameObject); //уничтожаем точку спауна
         }
 
     }
 
-    public void TurnToTrue()
+    public void TurnToTrue() 
     {
         IsActive = true;
     }
