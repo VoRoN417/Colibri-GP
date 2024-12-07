@@ -2,12 +2,19 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    public GameObject bulletPrefab; // Префаб пули
-    public Transform firePoint; // Точка, из которой производится выстрел
-    public float bulletSpeed = 10f; // Скорость пули
-    public float shootingCooldown = 0.5f; // Время задержки между выстрелами
+    public GameObject bulletPrefab; // РџСЂРµС„Р°Р± РїСѓР»Рё
+    public Transform firePoint; // РўРѕС‡РєР°, РёР· РєРѕС‚РѕСЂРѕР№ Р±СѓРґРµС‚ РІС‹СЃС‚СЂРµР»
+    public float bulletSpeed = 10f; // РЎРєРѕСЂРѕСЃС‚СЊ РїСѓР»Рё
+    public float shootingCooldown = 0.5f; // Р’СЂРµРјСЏ РјРµР¶РґСѓ РІС‹СЃС‚СЂРµР»Р°РјРё
 
-    private float lastShootTime = 0f; // Время последнего выстрела
+    private float lastShootTime = 0f; // Р’СЂРµРјСЏ РїРѕСЃР»РµРґРЅРµРіРѕ РІС‹СЃС‚СЂРµР»Р°
+    private AudioSource audioSource; // РљРѕРјРїРѕРЅРµРЅС‚ AudioSource РґР»СЏ РІРѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёСЏ Р·РІСѓРєР°
+
+    void Start()
+    {
+        // РџРѕР»СѓС‡Р°РµРј РєРѕРјРїРѕРЅРµРЅС‚ AudioSource РЅР° СЃС‚Р°СЂС‚Рµ
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -19,16 +26,22 @@ public class Shooting : MonoBehaviour
 
     void Shoot()
     {
-        // Создание пули
+        // РЎРѕР·РґР°РµРј РїСѓС€РєСѓ
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
-        // Получение компонента Rigidbody2D и установка скорости
+        // РџРѕР»СѓС‡Р°РµРј Rigidbody2D РЅР° РѕР±СЉРµРєС‚Рµ РїСѓР»Рё
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            rb.velocity = firePoint.up * bulletSpeed; // Направление стрельбы
+            rb.velocity = firePoint.up * bulletSpeed; // Р—Р°РґР°РµРј СЃРєРѕСЂРѕСЃС‚СЊ РїСѓР»Рё
         }
 
-        lastShootTime = Time.time; // Обновление времени последнего выстрела
+        // Р’РѕСЃРїСЂРѕРёР·РІРѕРґРёРј Р·РІСѓРє РІС‹СЃС‚СЂРµР»Р°
+        if (audioSource != null)
+        {
+            audioSource.Play(); // РџСЂРѕРёРіСЂС‹РІР°РµРј Р·РІСѓРє
+        }
+
+        lastShootTime = Time.time; // РћР±РЅРѕРІР»СЏРµРј РІСЂРµРјСЏ РїРѕСЃР»РµРґРЅРµРіРѕ РІС‹СЃС‚СЂРµР»Р°
     }
 }
